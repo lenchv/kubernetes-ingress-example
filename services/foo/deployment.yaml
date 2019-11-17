@@ -24,3 +24,11 @@ spec:
               path: /actuator/health
               port: 8080
             initialDelaySeconds: 5
+          volumeMounts:
+            - name: config-volume
+              mountPath: /app/application.yaml
+              subPath: conf.yaml
+      volumes:
+        - name: config-volume
+          configMap:
+            name: k8s-app-foo-configmap

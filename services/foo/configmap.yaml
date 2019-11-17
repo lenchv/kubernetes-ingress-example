@@ -1,7 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: k8s-app-bar-configmap
+  name: k8s-app-foo-configmap
 data:
   conf.yaml: |
     url: "http://k8s-app-bar:8080/bar"

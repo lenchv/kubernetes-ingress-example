@@ -9,7 +9,7 @@ spec:
   - host: minikube
     http:
       paths:
-      - path: /k8s-app/(.+)
+      - path: /k8s-app-bar/(.+)
         backend:
-          serviceName: k8s-app
+          serviceName: k8s-app-bar
           servicePort: 8080
