@@ -1,0 +1,8 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: k8s-app-bar-configmap
+data:
+  conf.yaml: |
+    url: "http://k8s-app-foo:8080/ask"
+  username: USER
