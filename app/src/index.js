@@ -4,6 +4,7 @@ const app = express();
 const port = 8080;
 const fs = require('fs');
 const yaml = require('yaml');
+const fetch = require('node-fetch');
 
 const getIps = () => {
     const filterIpV4 = (addresses) => addresses.filter(address => address.internal === false && address.family === 'IPv4');
@@ -45,6 +46,20 @@ app.get('/config', (req, res) => {
     const config = yaml.parse(fs.readFileSync(__dirname + '/application.yaml').toString());
 
     return res.send(config);
+});
+
+app.get('/ask', (req, res) => {
+    const config = yaml.parse(fs.readFileSync(__dirname + '/application.yaml').toString());
+
+    fetch(config.url).then(result => {
+        
+        return result.text();
+    }).then(data => {
+        res.send(data);
+    }).catch(err => {
+        console.log(err);
+        res.send(err.message);
+    });
 });
 
 app.listen(port, () => {

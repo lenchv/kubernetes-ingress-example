@@ -1,5 +1,0 @@
-config:
-  foo: "asdsad"
-  bar: "sadsad"
-foo:
-  url: "http://localhost:8080"
